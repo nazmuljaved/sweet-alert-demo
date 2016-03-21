@@ -1,0 +1,80 @@
+<html>
+	<head>
+		
+		
+			<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+		<script src="js/sweetalert.min.js"></script> 
+	<!--	  --  cdn for sweet-alert --
+		<link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+		<script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+																					-->
+	</head>
+	<body> 
+		<div class="example">
+				<button id="button1">A basic message</button>
+				<button id="button2">A title with a text </button>
+				<button id="button3">A success message</button>
+				<button id="button4">A warning message, with a function attached to the "Confirm"-button...</button>
+				<button id="button5">A warning message by passing a parameter, you can execute something else for "Cancel".</button>
+				<button id="button6">A message with a custom icon</button>
+		</div>
+<script>		
+	document.getElementById('button1').onclick = function(){
+	swal("Here's a message!");
+};
+
+document.getElementById('button2').onclick = function(){
+	swal("Here's a message!", "It's pretty, isn't it?")
+};
+
+document.getElementById('button3').onclick = function(){
+	swal("Good job!", "You clicked the button!", "success");
+};
+
+document.getElementById('button4').onclick = function(){
+	swal({
+		title: "Are you sure?",
+		text: "You will not be able to recover this imaginary file!",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: '#DD6B55',
+		confirmButtonText: 'Yes, delete it!',
+		closeOnConfirm: false,
+		//closeOnCancel: false
+	},
+	function(){
+		swal("Deleted!", "Your imaginary file has been deleted!", "success");
+	});
+};
+
+document.getElementById('button5').onclick = function(){
+	swal({
+		title: "Are you sure?",
+		text: "You will not be able to recover this imaginary file!",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: '#DD6B55',
+		confirmButtonText: 'Yes, delete it!',
+		cancelButtonText: "No, cancel plx!",
+		closeOnConfirm: false,
+		closeOnCancel: false
+	},
+	function(isConfirm){
+    if (isConfirm){
+      swal("Deleted!", "Your imaginary file has been deleted!", "success");
+    } else {
+      swal("Cancelled", "Your imaginary file is safe :)", "error");
+    }
+	});
+};
+
+document.getElementById('button6').onclick = function(){
+	swal({
+		title: "Sweet!",
+		text: "Here's a custom image.",
+		imageUrl: 'http://i.imgur.com/4NZ6uLY.jpg'
+	});
+};
+</script>
+	</body>
+</html>
